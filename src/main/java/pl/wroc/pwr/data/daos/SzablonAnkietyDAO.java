@@ -1,14 +1,11 @@
 package pl.wroc.pwr.data.daos;
 
-public class SzablonAnkietyDAO {
+import org.springframework.data.jpa.repository.JpaRepository;
 
-	/**
-	 * 
-	 * @param SzablonAnkietyModel
-	 */
-	public void zapiszAnkiete(int SzablonAnkietyModel) {
-		// TODO - implement SzablonAnkietyDAO.zapiszAnkiete
-		throw new UnsupportedOperationException();
-	}
+import pl.wroc.pwr.data.models.SzablonAnkiety;
+
+public interface SzablonAnkietyDAO extends JpaRepository<SzablonAnkiety, Long> {
+
+	
 
 }
