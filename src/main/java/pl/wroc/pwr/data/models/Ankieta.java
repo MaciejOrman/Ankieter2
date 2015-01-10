@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import pl.wroc.pwr.data.models.enums.StatusAnkiety;
@@ -15,6 +16,8 @@ public class Ankieta {
 	private StatusAnkiety statusAnkiety;	
 	@OneToMany
 	private List<Pytanie> listaPytan;
+	@ManyToOne
+	private SzablonAnkiety szablonAnkiety;
 	
 	protected Ankieta(){}
 	
@@ -36,4 +39,13 @@ public class Ankieta {
 	public void setListaPytan(List<Pytanie> listaPytan) {
 		this.listaPytan = listaPytan;
 	}
+	
+	public SzablonAnkiety getSzablonAnkiety() {
+		return szablonAnkiety;
+	}
+
+	public void setSzablonAnkiety(SzablonAnkiety szablonAnkiety) {
+		this.szablonAnkiety = szablonAnkiety;
+	}
+
 }

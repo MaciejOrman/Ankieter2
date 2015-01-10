@@ -1,10 +1,8 @@
 package pl.wroc.pwr.data.models;
 
-import java.util.List;
-
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import pl.wroc.pwr.data.models.baseTypes.Odpowiedz;
@@ -12,6 +10,7 @@ import pl.wroc.pwr.data.models.enums.RodzajPytania;
 
 @Entity
 public class Pytanie {
+	@GeneratedValue
 	@Id
 	private Long id;
 	private String tytul;
@@ -19,7 +18,15 @@ public class Pytanie {
 	private RodzajPytania rodzajPytania;
 	@OneToOne
 	private Odpowiedz odpowiedz;
+		
+	public Pytanie(String tytul, String tresc, RodzajPytania rodzajPytania) {
+		super();
+		this.tytul = tytul;
+		this.tresc = tresc;
+		this.rodzajPytania = rodzajPytania;
+	}
 	
+	public Pytanie(){}
 	public Long getId() {
 		return id;
 	}
