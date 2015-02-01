@@ -1,5 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html ng-app="">
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -40,9 +40,12 @@ body
 	z-index:1;
 }
 </style>
+  <script type="text/javascript" src="../../lib/angularjs/angular.js"></script>
+  <script src="../../controllers/main.js"></script>
 
 </head>
-<body>
+<body ng-controller="myController">
+<button ng-click="wyswietl()">wyswietl</button>
 <div id="space">
 <br>
 </div>

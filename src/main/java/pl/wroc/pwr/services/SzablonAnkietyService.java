@@ -33,7 +33,7 @@ public class SzablonAnkietyService {
 		throw new UnsupportedOperationException();
 	}
 
-	@RequestMapping(value="/zapiszAnkiete", method = RequestMethod.POST, consumes = {"application/json;charset=UTF-8"})
+	@RequestMapping(value="/zapiszSzablonAnkiety", method = RequestMethod.POST, consumes = {"application/json;charset=UTF-8"})
 	@ResponseStatus(value = HttpStatus.CREATED)
 	public void zapiszAnkiete(@RequestBody SzablonAnkietyDto szablonAnkietyDto) {
 		System.out.println(szablonAnkietyDto);
