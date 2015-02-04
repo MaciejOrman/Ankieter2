@@ -1,60 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html ng-app="">
-<head>
-<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Untitled Page</title>
-<style type="text/css">
-html, body
-{
-   height: 100%;
-}
-div#space
-{
-   width: 1px;
-   height: 50%;
-   margin-bottom: -245px;
-   float:left
-}
-div#container
-{
-   width: 760px;
-   height: 490px;
-   margin: 0 auto;
-   position: relative;
-   clear: left;
-}
-body
-{
-   margin: 0;
-   padding: 0;
-   background-color: #FFFFFF;
-   color: #000000;
-}
-#AdvancedButton1{
-	position:absolute;
-	left:215px;
-	top:257px;
-	width:150px;
-	height:34px;
-	z-index:1;
-}
-</style>
-  <script type="text/javascript" src="../../lib/angularjs/angular.js"></script>
-  <script src="../../controllers/main.js"></script>
-
-</head>
-<body ng-controller="myController">
-<button ng-click="wyswietl()">wyswietl</button>
-<div id="space">
-<br>
-</div>
-<div id="container">
-	<button id="AdvancedButton1" type="button" onclick="window.location='definiowanie_szablonu_ankiety.html'" name="" value="">
+<div>
+	<button id="AdvancedButton1" type="button" name="" value="" ng-click="nowySzablonForm()" style="position:absolute;left:215px;top:257px;width:150px;height:34px;z-index:1;">
 		<div>
 			<font style="font-size:11px" color="#000000" face="Arial">Utwórz nowy szablon ankiety</font>
+			
 		</div>
 	</button>
 </div>
-</body>
-</html>

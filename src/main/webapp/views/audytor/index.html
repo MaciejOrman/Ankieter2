@@ -1,11 +1,14 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html ng-app="">
+<html ng-app="myApp">
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Untitled Page</title>
+<title>Ankieter</title>
   <script type="text/javascript" src="../../lib/angularjs/angular.js"></script>
-  <script src="../../controllers/main.js"></script>
+  <script type="text/javascript" src="../../lib/angularjs/angular-route.min.js"></script>
+  <script src="../../controllers/mainController.js"></script>
+  <script src="../../controllers/audytorController.js"></script>
+  
 <style type="text/css">
 html, body
 {
@@ -26,6 +29,15 @@ div#container
    position: relative;
    clear: left;
 }
+div#container2{
+	position:absolute;
+	left:245px;
+	top:54px;
+	width:498px;
+	height:390px;
+	z-index:15;
+	border:1px #C0C0C0 solid;
+}
 </style>
 <style type="text/css">
 body
@@ -37,11 +49,10 @@ body
 }
 </style>
 </head>
-<body ng-controller="myController">
-<button ng-click="wyswietl()">wyswietl</button>
+<body ng-controller="audytorController">
 <div id="space"><br></div>
 <div id="container">
- <iframe name="InlineFrame1" id="InlineFrame1" style="position:absolute;left:15px;top:160px;width:768px;height:498px;z-index:0;border:1px #C0C0C0 solid;" src="./AUDYTOR_main.html" frameborder="0">Your browser does not support inline frames or is currently configured not to display inline frames.</iframe>
+<div ng-view style="position:absolute;left:15px;top:160px;width:768px;height:498px;z-index:0;border:1px #C0C0C0 solid;"></div>
 
 <div id="wb_Shape1" style="margin:0;padding:0;position:absolute;left:0px;top:0px;width:800px;height:138px;text-align:center;z-index:1;">
 <img src="../images/img0001.gif" id="Shape1" alt="" title="" style="border-width:0;width:800px;height:138px"></div>
