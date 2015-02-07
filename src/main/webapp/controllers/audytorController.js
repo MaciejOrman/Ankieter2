@@ -66,7 +66,15 @@ function audytorController($scope, $http, $location){
 	}
 	$scope.usunPytanie = function(){
 		console.log(znajdzIdPytaniaPoTytule($scope.tytul));
-		$scope.pytania.splice(znajdzIdPytaniaPoTytule($scope.tytul),1);
+		var znalezioneIdPytania = znajdzIdPytaniaPoTytule($scope.tytul);
+		if(znalezioneIdPytania!=-1){
+			$scope.pytania.splice(znalezioneIdPytania,1);
+			if($scope.wybranyIndeksPytania!=0){
+				$scope.wybranyIndeksPytania--;
+			}
+			$scope.tytul =$scope.pytania[$scope.wybranyIndeksPytania].tytul;
+			$scope.tresc =$scope.pytania[$scope.wybranyIndeksPytania].tresc;
+		}
 	}
 	
 	$scope.wGore = function(){
