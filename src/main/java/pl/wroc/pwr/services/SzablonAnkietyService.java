@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import pl.wroc.pwr.data.daos.PytanieDAO;
 import pl.wroc.pwr.data.daos.SzablonAnkietyDAO;
+import pl.wroc.pwr.data.models.Kurs;
 import pl.wroc.pwr.data.models.Pytanie;
 import pl.wroc.pwr.data.models.SzablonAnkiety;
 import pl.wroc.pwr.dtos.PytanieDto;
@@ -26,7 +27,6 @@ public class SzablonAnkietyService {
 	
 	@Autowired
 	PytanieDAO pytanieDAO;
-	
 	
 	public void defAnkietyClick() {
 		// TODO - implement SzablonAnkietyController.defAnkietyClick
@@ -47,7 +47,8 @@ public class SzablonAnkietyService {
 			pytania.add(pytanie);
 		}
 		pytanieDAO.save(pytania);
-		SzablonAnkiety szablonAnkiety = new SzablonAnkiety(szablonAnkietyDto.getNazwa_szablonu(),  pytania);
+		String nazwaKursu = "przykladowy kurs";		//TODO dodac pole z nazwa kursu do formularza i na jego podstawie zbudowac obiekt
+		SzablonAnkiety szablonAnkiety = new SzablonAnkiety(szablonAnkietyDto.getNazwa_szablonu(),  pytania, nazwaKursu);
 		szablonAnkietyDAO.save(szablonAnkiety);
 	}
 }

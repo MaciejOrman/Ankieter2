@@ -1,0 +1,3 @@
+function Ankietowany(){
+	var listaAnkiet = [];
+}

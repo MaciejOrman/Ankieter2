@@ -10,8 +10,7 @@ import pl.wroc.pwr.data.models.baseTypes.Osoba;
 
 @Entity
 public class Ankietowany extends Osoba {
-
-	private Long numerIndeksu;
+	private String numerIndeksu;
 	private String adresMailowy;
 	@ManyToMany
 	private List<Kurs> kursy;
@@ -21,11 +20,11 @@ public class Ankietowany extends Osoba {
 	protected Ankietowany(){}
 
 
-	public Long getNumerIndeksu() {
+	public String getNumerIndeksu() {
 		return numerIndeksu;
 	}
 
-	public void setNumerIndeksu(Long numerIndeksu) {
+	public void setNumerIndeksu(String numerIndeksu) {
 		this.numerIndeksu = numerIndeksu;
 	}
 

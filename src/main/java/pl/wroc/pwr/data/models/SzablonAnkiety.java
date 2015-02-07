@@ -14,16 +14,18 @@ public class SzablonAnkiety {
 	@Id
 	private Long id;
 	private String tytul;
+	private String nazwaKursu;
 
 	@OneToMany(fetch=FetchType.EAGER)
 	private List<Pytanie> pytania;
 	
 	protected SzablonAnkiety(){}
 	
-	public SzablonAnkiety(String tytul, List<Pytanie> pytania) {
+	public SzablonAnkiety(String tytul, List<Pytanie> pytania, String nazwaKursu) {
 		super();
 		this.tytul = tytul;
 		this.pytania = pytania;
+		this.nazwaKursu = nazwaKursu;
 	}
 
 	public Long getId() {
@@ -44,6 +46,14 @@ public class SzablonAnkiety {
 	}
 	public void setPytania(List<Pytanie> pytania) {
 		this.pytania = pytania;
+	}
+
+	public String getnazwaKursu() {
+		return nazwaKursu;
+	}
+
+	public void setKurs(String nazwaKursu) {
+		this.nazwaKursu = nazwaKursu;
 	}
 	
 	

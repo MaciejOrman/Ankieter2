@@ -3,6 +3,7 @@ package pl.wroc.pwr.data.models;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -10,6 +11,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class PlanowanieAnkietyzacji {
 	@Id
+	@GeneratedValue
 	private Long id;
 	@ManyToOne
 	private Termin termin;
@@ -17,6 +19,14 @@ public class PlanowanieAnkietyzacji {
 	private List<Ankieta> ankiety;
 	@ManyToOne
 	private Kurs kurs;
+	
+	protected PlanowanieAnkietyzacji(){}
+	
+	public PlanowanieAnkietyzacji(Termin termin, List<Ankieta> ankiety, Kurs kurs){
+		this.termin = termin;
+		this.ankiety = ankiety;
+		this.kurs = kurs;
+	}
 	
 	public Kurs getKurs() {
 		return kurs;

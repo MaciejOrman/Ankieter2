@@ -3,6 +3,8 @@ package pl.wroc.pwr.data.models;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -12,6 +14,7 @@ import pl.wroc.pwr.data.models.enums.StatusAnkiety;
 @Entity
 public class Ankieta {
 	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private Long id;
 	private StatusAnkiety statusAnkiety;	
 	@OneToMany
@@ -20,6 +23,13 @@ public class Ankieta {
 	private SzablonAnkiety szablonAnkiety;
 	
 	protected Ankieta(){}
+	
+	public Ankieta(StatusAnkiety status, List<Pytanie> pytania, SzablonAnkiety szablon){
+		super();
+		this.statusAnkiety = status;
+		this.listaPytan = pytania;
+		this.szablonAnkiety = szablon;
+	}
 	
 	public Long getId() {
 		return id;

@@ -2,16 +2,23 @@ package pl.wroc.pwr.data.models;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
 public class Termin {
 	@Id
+	@GeneratedValue
 	private Long id;
 	private Date od;
 	private Date koniec;
 	
 	protected Termin(){}
+	
+	public Termin(Date od, Date koniec){
+		this.od = od;
+		this.koniec = koniec;
+	}
 	
 	public Long getId() {
 		return id;
