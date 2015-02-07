@@ -52,15 +52,6 @@ public class AnkietowanyService {
 	@RequestMapping(value="/pobierzPlanyAnkietyzacji", method = RequestMethod.POST, consumes = {"application/json;charset=UTF-8"})
 	@ResponseStatus(value = HttpStatus.OK)
 	public List<PlanowanieAnkietyzacji> pobierzPlanyAnkietyzacji(@RequestBody String id) {
-		/* do testow */
-		Termin term = new Termin(new Date(), new Date());
-		terminDAO.save(term);
-		List<Ankieta> ankiety = new LinkedList<Ankieta>();
-		Kurs kurs = new Kurs("nazwa", "kod");
-		kursDAO.save(kurs);
-		PlanowanieAnkietyzacji plan = new PlanowanieAnkietyzacji(term, ankiety, kurs);
-		planowanieAnkietyzacjiDAO.save(plan);
-		/* koniec */
 		Ankietowany a = ankietowanyDAO.findOne(Long.parseLong(id));
 		List<PlanowanieAnkietyzacji> planyDlaAnkietowanego = new LinkedList<PlanowanieAnkietyzacji>();
 		List<PlanowanieAnkietyzacji> wszystkiePlany = planowanieAnkietyzacjiDAO.findAll();

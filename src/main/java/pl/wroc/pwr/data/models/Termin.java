@@ -1,5 +1,4 @@
 package pl.wroc.pwr.data.models;
-import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,14 +9,14 @@ public class Termin {
 	@Id
 	@GeneratedValue
 	private Long id;
-	private Date od;
-	private Date koniec;
+	private String od;
+	private String koniec;
 	
 	protected Termin(){}
 	
-	public Termin(Date od, Date koniec){
-		this.od = od;
-		this.koniec = koniec;
+	public Termin(String od, String koniec){
+		this.setOd(od);
+		this.setKoniec(koniec);
 	}
 	
 	public Long getId() {
@@ -29,18 +28,23 @@ public class Termin {
 		this.id = id;
 	}
 
-	public Date getOd() {
+	public String getOd() {
 		return od;
 	}
-	public void setOd(Date od) {
+
+	public void setOd(String od) {
 		this.od = od;
 	}
-	public Date getKoniec() {
+
+	public String getKoniec() {
 		return koniec;
 	}
-	public void setKoniec(Date koniec) {
+
+	public void setKoniec(String koniec) {
 		this.koniec = koniec;
 	}
+
+
 	
 	
 

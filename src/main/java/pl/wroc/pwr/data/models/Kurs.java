@@ -12,14 +12,16 @@ public class Kurs {
 	private Long id;
 	private String nazwa;
 	private String kod;
+	private String prowadzacy;
 	@ManyToOne
 	private SzablonAnkiety szablonAnkiety;
 	
 	protected Kurs(){}
 	
-	public Kurs(String nazwa, String kod){
+	public Kurs(String nazwa, String kod, String prowadzacy){
 		this.nazwa = nazwa;
 		this.kod = kod;
+		this.prowadzacy = prowadzacy;
 	}
 	public Long getId() {
 		return id;
@@ -44,6 +46,14 @@ public class Kurs {
 	}
 	public void setSzablonAnkiety(SzablonAnkiety szablonAnkiety) {
 		this.szablonAnkiety = szablonAnkiety;
+	}
+
+	public String getProwadzacy() {
+		return prowadzacy;
+	}
+
+	public void setProwadzacy(String prowadzacy) {
+		this.prowadzacy = prowadzacy;
 	}
 	
 	

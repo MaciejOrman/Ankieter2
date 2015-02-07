@@ -1,4 +1,4 @@
-function audytorController($scope, $http, $location){
+function audytorController($scope, $http, $location, myService){
 	
 	$scope.tytul;
 	$scope.tresc;
@@ -32,7 +32,7 @@ function audytorController($scope, $http, $location){
 			$http.post('/zapiszSzablonAnkiety', $scope.szablonAnkiety).
 			  success(function(data, status, headers, config) {
 			    alert("Utworzono podany szablon ankiety!");
-			    $location.path('/home/');
+			    $location.path('/audytor/');
 			  }).
 			  error(function(data, status, headers, config) {
 			    // called asynchronously if an error occurs

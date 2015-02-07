@@ -2,6 +2,7 @@ package pl.wroc.pwr.data.models;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,18 +14,18 @@ public class PlanowanieAnkietyzacji {
 	@Id
 	@GeneratedValue
 	private Long id;
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	private Termin termin;
-	@OneToMany
-	private List<Ankieta> ankiety;
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
+	private SzablonAnkiety szablonAnkiety;
+	@ManyToOne(cascade=CascadeType.ALL)
 	private Kurs kurs;
 	
 	protected PlanowanieAnkietyzacji(){}
 	
-	public PlanowanieAnkietyzacji(Termin termin, List<Ankieta> ankiety, Kurs kurs){
+	public PlanowanieAnkietyzacji(Termin termin, SzablonAnkiety szablonAnkiety, Kurs kurs){
 		this.termin = termin;
-		this.ankiety = ankiety;
+		this.szablonAnkiety = szablonAnkiety;
 		this.kurs = kurs;
 	}
 	
@@ -46,12 +47,14 @@ public class PlanowanieAnkietyzacji {
 	public void setTermin(Termin termin) {
 		this.termin = termin;
 	}
-	public List<Ankieta> getAnkiety() {
-		return ankiety;
+	public SzablonAnkiety getSzablonAnkiety() {
+		return szablonAnkiety;
 	}
-	public void setAnkiety(List<Ankieta> ankiety) {
-		this.ankiety = ankiety;
+
+	public void setSzablonAnkiety(SzablonAnkiety szablonAnkiety) {
+		this.szablonAnkiety = szablonAnkiety;
 	}
+
 	
 	
 
