@@ -9,6 +9,7 @@ public class PytanieDto {
 	private RodzajPytania rodzajPytania;
 	private OdpowiedzDto odpowiedz;
 	
+
 	public String getTytul() {
 		return tytul;
 	}
@@ -32,6 +33,12 @@ public class PytanieDto {
 	}
 	public void setOdpowiedz(OdpowiedzDto odpowiedz) {
 		this.odpowiedz = odpowiedz;
+	}
+	@Override
+	public String toString() {
+		return "PytanieDto [tytul=" + tytul + ", tresc=" + tresc
+				+ ", rodzajPytania=" + rodzajPytania + ", odpowiedz="
+				+ odpowiedz + "]";
 	}
 	
 }

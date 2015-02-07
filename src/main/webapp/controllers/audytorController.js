@@ -5,22 +5,47 @@ function audytorController($scope, $http, $location){
 	$scope.pytania =[];
 	$scope.tytulSzablonu;
 	$scope.szablonAnkiety;
-	
+	$scope.typPytania=0;
+	$scope.wybranyIndeksPytania=0;
+	$scope.rodzajePytan = [{name: 'otwarte', value: 0},{name: 'zamkniete', value: 1},{name: 'skala', value: 2}];
+    $scope.form = {type : $scope.rodzajePytan[0].value};
+    $scope.info;
+    
 	$scope.zapiszPytanie = function(){
-		$scope.pytania.push({"tytul":$scope.tytul,"tresc":$scope.tresc});
-		console.log($scope.pytania);
+		if($scope.tytul!=null && $scope.tresc!=null){
+			if(znajdzIdPytaniaPoTytule($scope.tytul)==-1){
+				$scope.pytania.push({"tytul":$scope.tytul,"tresc":$scope.tresc,"rodzajPytania":$scope.form.type});
+				console.log($scope.pytania);
+				$scope.wybranyIndeksPytania=$scope.pytania.length-1;
+			}else{
+				$scope.info = "Podane pytanie istnieje już na liście!";
+			}
+		}else{
+			$scope.info = "Podaj tytuł i treść pytania!";
+		}
 	}
 	
 	$scope.zapiszSzablon = function(){
-		$scope.szablonAnkiety = {"nazwa_szablonu":$scope.tytulSzablonu,"pytania":$scope.pytania};
-		$http.post('/zapiszSzablonAnkiety', $scope.szablonAnkiety).
-		  success(function(data, status, headers, config) {
-		    alert("Utworzono podany szablon ankiety!");
-		  }).
-		  error(function(data, status, headers, config) {
-		    // called asynchronously if an error occurs
-		    // or server returns response with an error status.
-		  });
+		if($scope.tytulSzablonu != null){
+			if($scope.pytania.length!=0){
+			$scope.szablonAnkiety = {"nazwa_szablonu":$scope.tytulSzablonu,"pytania":$scope.pytania};
+			$http.post('/zapiszSzablonAnkiety', $scope.szablonAnkiety).
+			  success(function(data, status, headers, config) {
+			    alert("Utworzono podany szablon ankiety!");
+			    $location.path('/home/');
+			  }).
+			  error(function(data, status, headers, config) {
+			    // called asynchronously if an error occurs
+			    // or server returns response with an error status.
+			  });
+			}else{
+				$scope.info = "Nie zdefiniowałeś żadnego pytania!";
+			}
+		}else{
+			
+			$scope.info = "Podaj tytuł szablonu ankiety!"
+		}
+
 	}
 	
 	$scope.nowySzablonForm = function(){
@@ -28,14 +53,16 @@ function audytorController($scope, $http, $location){
 		
 	}
 	
-	$scope.pokazPytanie = function(tytul){		
+	$scope.pokazPytanie = function(tytul, $index){		
 		for(var i =0; i<$scope.pytania.length;i++){
 			var pytanie = $scope.pytania[i];
 			if(pytanie.tytul==tytul){
 				$scope.tytul =pytanie.tytul;
 				$scope.tresc =pytanie.tresc;
+				$scope.form = {type : $scope.rodzajePytan[pytanie.rodzajPytania].value};
 			}
 		}
+		 $scope.wybranyIndeksPytania = $index;
 	}
 	$scope.usunPytanie = function(){
 		console.log(znajdzIdPytaniaPoTytule($scope.tytul));
@@ -52,6 +79,7 @@ function audytorController($scope, $http, $location){
 			var elDoZamieniany = $scope.pytania[aktualnaPozycja];
 			$scope.pytania[aktualnaPozycja-1] = elDoZamieniany;
 			$scope.pytania[aktualnaPozycja] = elZamieniany;
+			$scope.wybranyIndeksPytania--;
 		}
 	}
 	
@@ -60,12 +88,16 @@ function audytorController($scope, $http, $location){
 		var aktualnaPozycja = znajdzIdPytaniaPoTytule($scope.tytul);
 		console.log(aktualnaPozycja);
 		console.log($scope.pytania.length);
-		if(aktualnaPozycja<=$scope.pytania.length-1 && aktualnaPozycja>=0){
+		if(aktualnaPozycja<$scope.pytania.length-1 && aktualnaPozycja>=0){
 			var elZamieniany = $scope.pytania[aktualnaPozycja+1];
 			var elDoZamieniany = $scope.pytania[aktualnaPozycja];
 			$scope.pytania[aktualnaPozycja+1] = elDoZamieniany;
 			$scope.pytania[aktualnaPozycja] = elZamieniany;
+			$scope.wybranyIndeksPytania++;
 		}
+	}
+	$scope.anuluj = function(){
+		$location.path('/home/');
 	}
 	
 	function znajdzIdPytaniaPoTytule(tytul){
@@ -74,7 +106,8 @@ function audytorController($scope, $http, $location){
 			if(pytanie.tytul==tytul){
 				return i;
 			}
-		}		
+		}
+		return -1;
 	}
 	
 	
