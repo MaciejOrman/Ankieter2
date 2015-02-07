@@ -31,9 +31,10 @@ function ankietowanyController($scope,$rootScope, $http, $location, myService){
 	$rootScope.wypelnijAnkiete = function(id){
 		
 		console.log(id);
+		id--;
 		
-		var planAnkietyzacji = {};
-		planAnkietyzacji =$rootScope.planyAnkietyzacji[id];
+		var planAnkietyzacji = $rootScope.planyAnkietyzacji[id];
+		console.log(planAnkietyzacji);
 		$rootScope.nazwaKursu = planAnkietyzacji.kurs.nazwa;
 		$rootScope.prowadzacy = planAnkietyzacji.kurs.prowadzacy;
 		$rootScope.pytania = planAnkietyzacji.szablonAnkiety.pytania;
