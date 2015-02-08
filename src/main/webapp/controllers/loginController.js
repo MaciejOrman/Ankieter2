@@ -1,4 +1,4 @@
-function loginController($scope, $http, $location){
+function loginController($scope, $http, $location, $rootScope){
 	$scope.login;
 	$scope.haslo;
 	$scope.odpowiedz;
@@ -38,6 +38,10 @@ function loginController($scope, $http, $location){
 	
 	$scope.wyloguj = function(){
 		$location.path("/login");
+	}
+
+	$scope.ustawJezyk = function(jezyk){
+		$rootScope.currentLanguage = jezyk;
 	}
 	
 }

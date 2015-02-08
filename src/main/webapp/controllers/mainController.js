@@ -11,10 +11,6 @@ var app =angular.module('myApp', ['ngRoute']).
     $routeProvider.when('/nowySzablon/:id', {templateUrl: '/views/audytor/definiowanie_szablonu_ankiety.html', controller: 'audytorController'});
     $routeProvider.otherwise({redirectTo: '/login'});
   	}]);
-	$rootScope.currentLanguage = 'en';
-	$scope.ustawJezyk = function(jezyk){
-		$rootScope.currentLanguage = jezyk;
-	}
 	app.filter('xlat', ['$rootScope', function($rootScope) {
 	  var tables = {
 				//main view
@@ -116,6 +112,7 @@ var app =angular.module('myApp', ['ngRoute']).
 			    	'BACK': 'Powrót'
 			    		},
 };
+		$rootScope.currentLanguage = 'en';
 	  return function(label) {
 	    return tables[$rootScope.currentLanguage][label];
 	  };
