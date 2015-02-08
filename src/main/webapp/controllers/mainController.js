@@ -51,7 +51,12 @@ app.filter('xlat', ['$rootScope', function($rootScope) {
 			    	'QUESTIONCONTENT': 'Content',
 			    	'QUESTIONSAVE': 'Save question',
 			    	'QUESTIONDELETE': 'Delete question',
-			    	'QUESTIONNAIRESAVE': 'Save questionnaire'},
+			    	'QUESTIONNAIRESAVE': 'Save questionnaire',
+			    	'LOGIN': 'Login: ',
+			    	'PASSWORD': 'Password: ',
+			    	'LOGINTO': 'Log in',
+			    	'ERROR_LOG_IN': 'Error while logging in!',
+			    	'BACK': 'Back'},
 			    'pl': {
 			    	'HELLO': 'Witaj ',
 			    	'LOGOUT': 'Wyloguj',
@@ -89,7 +94,12 @@ app.filter('xlat', ['$rootScope', function($rootScope) {
 			    	'QUESTIONCONTENT': 'Treść',
 			    	'QUESTIONSAVE': 'Zapisz pytanie',
 			    	'QUESTIONDELETE': 'Usuń pytanie',
-			    	'QUESTIONNAIRESAVE': 'Zapisz szablon ankiety'
+			    	'QUESTIONNAIRESAVE': 'Zapisz szablon ankiety',
+			    	'LOGIN': 'Login: ',
+			    	'PASSWORD': 'Hasło: ',
+			    	'LOGINTO': 'Zaloguj',
+			    	'ERROR_LOG_IN': 'Błąd podczas logowania!',
+			    	'BACK': 'Powrót'
 			    		},
 };
 	  $rootScope.currentLanguage = 'en';
