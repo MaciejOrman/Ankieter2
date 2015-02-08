@@ -55,7 +55,7 @@ app.filter('xlat', ['$rootScope', function($rootScope) {
 			    	'LOGIN': 'Login: ',
 			    	'PASSWORD': 'Password: ',
 			    	'LOGINTO': 'Log in',
-			    	'ERROR_LOG_IN': 'Error while logging in!',
+			    	'ERROR_LOG_IN': 'Wrong login/password',
 			    	'BACK': 'Back'},
 			    'pl': {
 			    	'HELLO': 'Witaj ',
@@ -98,7 +98,7 @@ app.filter('xlat', ['$rootScope', function($rootScope) {
 			    	'LOGIN': 'Login: ',
 			    	'PASSWORD': 'Hasło: ',
 			    	'LOGINTO': 'Zaloguj',
-			    	'ERROR_LOG_IN': 'Błąd podczas logowania!',
+			    	'ERROR_LOG_IN': 'Zły login/hasło',
 			    	'BACK': 'Powrót'
 			    		},
 };

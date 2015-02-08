@@ -1,0 +1,8 @@
+<div class="container" ng-controller="loginController">
+<b style="color:red;">{{info}}</b>
+        <form  method="post">
+            <div><label> {{ 'LOGIN' | xlat }} <input type="text" name="username" ng-model="login" ng-change="update" /> </label></div>
+            <div><label> {{ 'PASSWORD' | xlat }} <input type="password" name="password" ng-model="haslo" ng-change="update" /> </label></div>
+            <div><button type="submit" value="Zaloguj" ng-click="zaloguj()">{{ 'LOGINTO' | xlat }}</button></div>
+        </form>
+</div>
