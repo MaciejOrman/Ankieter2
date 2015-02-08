@@ -37,6 +37,7 @@ function ankietowanyController($scope,$rootScope, $http, $location){
 		$rootScope.liczbaPytan = $rootScope.pytania.length;
 		$rootScope.pytanie =$rootScope.pytania[$rootScope.aktualnaStrona].tresc;
 		console.log($rootScope.pytania);
+		$rootScope.aktualnaStrona = 0;
 		
 		$rootScope.odpowiedz;
 		//$scope.$apply();
