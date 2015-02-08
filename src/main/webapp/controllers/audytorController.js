@@ -105,7 +105,7 @@ function audytorController($scope, $http, $location){
 		}
 	}
 	$scope.anuluj = function(){
-		$location.path('/home/');
+		$location.path('/audytor/');
 	}
 	
 	function znajdzIdPytaniaPoTytule(tytul){

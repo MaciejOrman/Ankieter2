@@ -42,7 +42,6 @@ function ankietowanyController($scope,$rootScope, $http, $location){
 		//$scope.$apply();
 		$location.path("/wypelnijAnkiete/")
 		//console.log("$scope.nazwaKursu:"+$scope.nazwaKursu);
-		//console.log(myService.get());
 	}
 	
 	$rootScope.nastepnePytanie = function(){
@@ -59,4 +58,14 @@ function ankietowanyController($scope,$rootScope, $http, $location){
 			//$rootScope.odpowiedzi[$rootScope.aktualnaStrona] = $rootScope.odpowiedz; 
 		}
 	}
+	$scope.anuluj = function(){
+		$location.path('/ankietowany/');
+	}
+	$scope.zapisz = function(){
+		$location.path('/ankietowany/');
+	}
+	$scope.wyslij = function(){
+		$location.path('/ankietowany/');
+	}
+	
 }

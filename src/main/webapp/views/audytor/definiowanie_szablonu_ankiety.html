@@ -3,7 +3,7 @@
 			 name="" value=""
 			style="position: absolute; left: 443px; top: 455px; width: 150px; height: 34px; z-index: 1; background-color: #FF9966;" ng-click="anuluj()">
 			<div>
-				<font style="font-size: 11px" color="#000000" face="Arial">Anuluj</font>
+				<font style="font-size: 11px" color="#000000" face="Arial">{{ 'CANCEL' | xlat }}</font>
 			</div>
 		</button>
 		<div id="wb_Text"
@@ -11,19 +11,16 @@
 			<font style="font-size: 16px" color="red" face="Arial"><b>{{info}}</b></font>
 		</div>
 		<div id="wb_Text1"
-			style="margin: 0; padding: 0; position: absolute; left: 6px; top: 5px; width: 250px; height: 19px; text-align: left; z-index: 2;">
-			<font style="font-size: 16px" color="#000000" face="Arial"><b>Definiowanie
-					szablonu ankiety:</b></font>
+			style="margin: 0; padding: 0; position: absolute; left: 6px; top: 5px; width: 350px; height: 19px; text-align: left; z-index: 2;">
+			<font style="font-size: 16px" color="#000000" face="Arial"><b>{{ 'NEWQUESTIONNAIREDEF' | xlat }}</b></font>
 		</div>
 		<div id="wb_Text2"
-			style="margin: 0; padding: 0; position: absolute; left: 10px; top: 29px; width: 94px; height: 14px; text-align: left; z-index: 3;">
-			<font style="font-size: 11px" color="#000000" face="Arial">Nazwa
-				szablonu:</font>
+			style="margin: 0; padding: 0; position: absolute; left: 10px; top: 29px; width: 120px; height: 14px; text-align: left; z-index: 3;">
+			<font style="font-size: 11px" color="#000000" face="Arial">{{ 'QUESTIONNAIRENAME' | xlat }}</font>
 		</div>
 		<div id="wb_Text4"
 			style="margin: 0; padding: 0; position: absolute; left: 10px; top: 144px; width: 111px; height: 14px; text-align: left; z-index: 4;">
-			<font style="font-size: 11px" color="#000000" face="Arial">List
-				pytań w ankiecie:</font>
+			<font style="font-size: 11px" color="#000000" face="Arial">{{ 'QUESTIONLIST' | xlat }}</font>
 		</div>
 		<div id="wb_BulletedList1"
 			style="margin: 0; padding: 0; position: absolute; left: 11px; top: 189px; width: 214px; height: 258px; text-align: left; z-index: 5;">
@@ -35,27 +32,24 @@
 		</div>
 		<div id="wb_Text5"
 			style="margin: 0; padding: 0; position: absolute; left: 11px; top: 163px; width: 124px; height: 14px; text-align: left; z-index: 6;">
-			<font style="font-size: 11px" color="#000000" face="Arial">Zmień
-				kolejność pytania:</font>
+			<font style="font-size: 11px" color="#000000" face="Arial">{{ 'QUESTIONORDER' | xlat }}</font>
 		</div>
 		<button id="Button1" name=""
 			style="position: absolute; left: 131px; top: 158px; width: 60px; height: 25px; font-family: Arial; font-size: 11px; z-index: 7"
-			ng-click="wGore()">W górę</button>
+			ng-click="wGore()">{{ 'UP' | xlat }}</button>
 		<button id="Button2" name="" value="W dół"
 			style="position: absolute; left: 177px; top: 158px; width: 60px; height: 25px; font-family: Arial; font-size: 11px; z-index: 8"
-			ng-click="wDol()">W dół</button>
+			ng-click="wDol()">{{ 'DOWN' | xlat }}</button>
 		<div id="wb_Text6"
 			style="margin: 0; padding: 0; position: absolute; left: 10px; top: 57px; width: 111px; height: 14px; text-align: left; z-index: 9;">
-			<font style="font-size: 11px" color="#000000" face="Arial">Dodaj
-				nowe pytanie:</font>
+			<font style="font-size: 11px" color="#000000" face="Arial">{{ 'ADDQUESTION' | xlat }}</font>
 		</div>
 		<div id="wb_Text7"
 			style="margin: 0; padding: 0; position: absolute; left: 10px; top: 81px; width: 111px; height: 14px; text-align: left; z-index: 10;">
-			<font style="font-size: 11px" color="#000000" face="Arial">Typ
-				pytania:</font>
+			<font style="font-size: 11px" color="#000000" face="Arial">{{ 'QUESTIONTYPE' | xlat }}</font>
 		</div>
 		<div
-			style="position: absolute; left: 71px; top: 77px; width: 149px; height: 18px; border: 1px #C0C0C0 solid; z-index: 11">
+			style="position: absolute; left: 85px; top: 77px; width: 149px; height: 18px; border: 1px #C0C0C0 solid; z-index: 11">
 			<!-- <select name="Combobox1" size="1" id="Combobox1" style="position:absolute;left:0px;top:0px;width:100%;height:100%;border-width:0px;font-family:Arial;font-size:11px;" ng-model="rodzajPytania">
 <option value="0">Otwarte</option>
 <option value="1">Zamknięte</option>
@@ -70,12 +64,11 @@
 			style="position: absolute; left: 597px; top: 455px; width: 150px; height: 34px; z-index: 13; background-color: #98FB98;"
 			ng-click="zapiszSzablon()">
 			<div>
-				<font style="font-size: 11px" color="#000000" face="Arial">Zapisz
-					szablon</font>
+				<font style="font-size: 11px" color="#000000" face="Arial">{{ 'QUESTIONNAIRESAVE' | xlat }}</font>
 			</div>
 		</button>
 		<input type="text" name="nazwaSzablonu" id="Editbox1"
-			style="position: absolute; left: 99px; top: 26px; width: 644px; height: 16px; border: 1px #C0C0C0 solid; font-family: Arial; font-size: 11px; z-index: 14"
+			style="position: absolute; left: 130px; top: 26px; width: 613px; height: 16px; border: 1px #C0C0C0 solid; font-family: Arial; font-size: 11px; z-index: 14"
 			name="Editbox1"
 			value="Szablona ankiety do kursu Projektowanie Systemów Informatycznych (Projekt)"
 			ng-model="tytulSzablonu"> 
@@ -83,25 +76,25 @@
 		<div id="container2">
 			<div id="wb_Text1"
 				style="margin: 0; padding: 0; position: absolute; left: 0px; top: 3px; width: 111px; height: 14px; text-align: left; z-index: 1;">
-				<font style="font-size: 11px" color="#000000" face="Arial">Tytuł:</font>
+				<font style="font-size: 11px" color="#000000" face="Arial">{{ 'QUESTIONTITLE' | xlat }}</font>
 			</div>
 			<div id="wb_Text2"
 				style="margin: 0; padding: 0; position: absolute; left: 0px; top: 26px; width: 111px; height: 14px; text-align: left; z-index: 2;">
-				<font style="font-size: 11px" color="#000000" face="Arial">Treść:</font>
+				<font style="font-size: 11px" color="#000000" face="Arial">{{ 'QUESTIONCONTENT' | xlat }}</font>
 			</div>
 			<input type="text" id="Editbox2"
-				style="position: absolute; left: 34px; top: 0px; width: 450px; height: 16px; border: 1px #C0C0C0 solid; font-family: Arial; font-size: 11px; z-index: 3"
+				style="position: absolute; left: 45px; top: 0px; width: 440px; height: 16px; border: 1px #C0C0C0 solid; font-family: Arial; font-size: 11px; z-index: 3"
 				name="Editbox2" value="Uwagi" ng-model="tytul" ng-change="update"
 				>
 			<textarea name="TextArea1" id="TextArea2"
-				style="position: absolute; left: 35px; top: 25px; width: 448px; height: 285px; border: 1px #C0C0C0 solid; font-family: Arial; font-size: 11px; z-index: 4"
+				style="position: absolute; left: 45px; top: 25px; width: 440px; height: 285px; border: 1px #C0C0C0 solid; font-family: Arial; font-size: 11px; z-index: 4"
 				rows="19" cols="82" ng-model="tresc" ng-change="update" >Twoje uwagi dotyczące kursu</textarea>
 			<button id="Button1" name="" value="Usuń pytanie"
-				style="position: absolute; left: 388px; top: 321px; width: 96px; height: 25px; font-family: Arial; font-size: 11px; z-index: 5"
-				ng-click="usunPytanie()">Usuń pytanie</button>
+				style="position: absolute; left: 370px; top: 321px; width: 106px; height: 25px; font-family: Arial; font-size: 11px; z-index: 5"
+				ng-click="usunPytanie()">{{ 'QUESTIONDELETE' | xlat }}</button>
 			<button id="Button2" name="" value="Zapisz pytanie"
-				style="position: absolute; left: 288px; top: 321px; width: 96px; height: 25px; font-family: Arial; font-size: 11px; z-index: 6"
-				ng-click="zapiszPytanie()">Zapisz pytanie</button>
+				style="position: absolute; left: 260px; top: 321px; width: 106px; height: 25px; font-family: Arial; font-size: 11px; z-index: 6"
+				ng-click="zapiszPytanie()">{{ 'QUESTIONSAVE' | xlat }}</button>
 		</div>
 </div>
 </body>
