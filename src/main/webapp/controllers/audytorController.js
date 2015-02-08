@@ -1,5 +1,6 @@
-function audytorController($scope, $http, $location){
+function audytorController($scope, $http, $location, $filter){
 	
+	var langFilter = $filter("xlat");
 	$scope.tytul;
 	$scope.tresc;
 	$scope.pytania =[];
@@ -7,7 +8,7 @@ function audytorController($scope, $http, $location){
 	$scope.szablonAnkiety;
 	$scope.typPytania=0;
 	$scope.wybranyIndeksPytania=0;
-	$scope.rodzajePytan = [{name: 'otwarte', value: 0},{name: 'zamkniete', value: 1},{name: 'skala', value: 2}];
+	$scope.rodzajePytan = [{name: langFilter("QUESTIONTYPEOPEN"), value: 0},{name: langFilter("QUESTIONTYPETF"), value: 1},{name: langFilter("QUESTIONTYPESCALE"), value: 2}];
     $scope.form = {type : $scope.rodzajePytan[0].value};
     $scope.info;
     
@@ -18,10 +19,10 @@ function audytorController($scope, $http, $location){
 				console.log($scope.pytania);
 				$scope.wybranyIndeksPytania=$scope.pytania.length-1;
 			}else{
-				$scope.info = "Podane pytanie istnieje już na liście!";
+				$scope.info = langFilter("VALIDERROR_QUESTIONALREADYEXIST");
 			}
 		}else{
-			$scope.info = "Podaj tytuł i treść pytania!";
+			$scope.info = langFilter("VALIDERROR_NOTITLEORCONTENT");
 		}
 	}
 	
@@ -31,7 +32,7 @@ function audytorController($scope, $http, $location){
 			$scope.szablonAnkiety = {"nazwa_szablonu":$scope.tytulSzablonu,"pytania":$scope.pytania};
 			$http.post('/zapiszSzablonAnkiety', $scope.szablonAnkiety).
 			  success(function(data, status, headers, config) {
-			    alert("Utworzono podany szablon ankiety!");
+			    alert(langFilter("QUESTIONNAIRE_CREATED"));
 			    $location.path('/audytor/');
 			  }).
 			  error(function(data, status, headers, config) {
@@ -39,11 +40,11 @@ function audytorController($scope, $http, $location){
 			    // or server returns response with an error status.
 			  });
 			}else{
-				$scope.info = "Nie zdefiniowałeś żadnego pytania!";
+				$scope.info = langFilter("VALIDERROR_NOQUESTION");
 			}
 		}else{
 			
-			$scope.info = "Podaj tytuł szablonu ankiety!"
+			$scope.info = langFilter("VALIDERROR_NOTITLE");
 		}
 
 	}
