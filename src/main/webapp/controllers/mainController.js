@@ -1,7 +1,7 @@
 'use strict';
 
 var app =angular.module('myApp', ['ngRoute']).
-  config(['$routeProvider', function($routeProvider) {
+	config(['$routeProvider', function($routeProvider) {
 	$routeProvider.when('/login', {templateUrl: '/views/login.html', controller: 'loginController'});
 	$routeProvider.when('/blad', {templateUrl: '/views/blad.html', controller: 'loginController'});
 	$routeProvider.when('/ankietowany', {templateUrl: '/views/ankietowany/ANKIETOWANY_main.html', controller: 'ankietowanyController'});
@@ -10,8 +10,8 @@ var app =angular.module('myApp', ['ngRoute']).
     $routeProvider.when('/nowySzablon', {templateUrl: '/views/audytor/definiowanie_szablonu_ankiety.html', controller: 'audytorController'});
     $routeProvider.when('/nowySzablon/:id', {templateUrl: '/views/audytor/definiowanie_szablonu_ankiety.html', controller: 'audytorController'});
     $routeProvider.otherwise({redirectTo: '/login'});
-  }]);
-app.filter('xlat', ['$rootScope', function($rootScope) {
+  	}]);
+	app.filter('xlat', ['$rootScope', function($rootScope) {
 	  var tables = {
 				//main view
 			    'en': {
@@ -112,7 +112,7 @@ app.filter('xlat', ['$rootScope', function($rootScope) {
 			    	'BACK': 'Powrót'
 			    		},
 };
-	  $rootScope.currentLanguage = 'en';
+		$rootScope.currentLanguage = 'en';
 	  return function(label) {
 	    return tables[$rootScope.currentLanguage][label];
 	  };
