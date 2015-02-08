@@ -61,4 +61,14 @@ function ankietowanyController($scope,$rootScope, $http, $location){
 			//$rootScope.odpowiedzi[$rootScope.aktualnaStrona] = $rootScope.odpowiedz; 
 		}
 	}
+	$scope.anuluj = function(){
+		$location.path('/ankietowany/');
+	}
+	$scope.zapisz = function(){
+		$location.path('/ankietowany/');
+	}
+	$scope.wyslij = function(){
+		$location.path('/ankietowany/');
+	}
+	
 }

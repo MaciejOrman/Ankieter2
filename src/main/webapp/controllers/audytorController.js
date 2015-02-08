@@ -1,4 +1,4 @@
-function audytorController($scope, $http, $location, myService){
+function audytorController($scope, $http, $location){
 	
 	$scope.tytul;
 	$scope.tresc;
@@ -105,7 +105,7 @@ function audytorController($scope, $http, $location, myService){
 		}
 	}
 	$scope.anuluj = function(){
-		$location.path('/home/');
+		$location.path('/audytor/');
 	}
 	
 	function znajdzIdPytaniaPoTytule(tytul){
