@@ -10,18 +10,89 @@ var app =angular.module('myApp', ['ngRoute']).
     $routeProvider.when('/nowySzablon/:id', {templateUrl: '/views/audytor/definiowanie_szablonu_ankiety.html', controller: 'audytorController'});
     $routeProvider.otherwise({redirectTo: '/ankietowany'});
   }]);
-app.factory('myService', function() {
-	 var planyAnkietyzacji = {}
-	 function set(data) {
-		 planyAnkietyzacji = data;
-	 }
-	 function get() {
-	  return planyAnkietyzacji;
-	 }
-
-	 return {
-	  set: set,
-	  get: get
-	 }
-
-	});
+app.filter('xlat', ['$rootScope', function($rootScope) {
+	  var tables = {
+				//main view
+			    'en': {
+			    	'HELLO': 'Hello ',
+			    	'LOGOUT': 'Log out',
+			    	'SETTINGS': 'Settings',
+			    	'QUESTIONNAIRELIST': 'List of avaiable questionnaires:',
+			    	'COURSENAME': 'Name of course',
+			    	'TEACHER': 'Teacher',
+			    	'STARTDATE': 'Start date',
+			    	'ENDDATE': 'End date',
+			    	'STATUS': 'Status',
+			    	'ACTIONS': 'Actions',
+			    	'NOTFILLED': 'Not filled',
+			    	'Fill': 'Fill questionnaire',			    	
+			    	'QUESTIONNAIRE': 'QUESTIONNAIRE',
+			    	'QUESTION': 'Question',
+			    	'PREVIOUSQUESTION': 'Previous question',
+			    	'NEXTQUESTION': 'Next question',
+			    	'ANSWER': 'Answer',
+			    	'CANCEL': 'Cancel',
+			    	'SAVEQUESTIONNAIRE': 'Save questionnaire',
+			    	'SENDQUESTIONNAIRE': 'Send questionnaire',
+			    	'NEWQUESTIONNAIRE': 'Create new questionnaire template',
+			    	'NEWQUESTIONNAIREDEF': 'Definition of new questionnaire template',
+			    	'QUESTIONNAIRENAME': 'Name of questionnaire',
+			    	'NEWQUESTION': 'Add new question',
+			    	'QUESTIONTYPE': 'Question type',
+			    	'QUESTIONTYPEOPEN': 'Open',
+			    	'QUESTIONTYPESCALE': 'Scale',
+			    	'QUESTIONTYPETF': 'True/False',
+			    	'QUESTIONLIST': 'List of questions',
+			    	'QUESTIONORDER': 'Change question order',
+			    	'QUESTIONORDERUP': 'Up',
+			    	'QUESTIONORDERDOWN': 'Down',
+			    	'QUESTIONTITLE': 'Question title',
+			    	'QUESTIONCONTENT': 'Question content',
+			    	'QUESTIONSAVE': 'Save question',
+			    	'QUESTIONDELETE': 'Delete question',
+			    	'QUESTIONNAIRESAVE': 'Save questionnaire'},
+			    'pl': {
+			    	'HELLO': 'Witaj ',
+			    	'LOGOUT': 'Wyloguj',
+			    	'SETTINGS': 'Ustawienia',
+			    	'QUESTIONNAIRELIST': 'Lista dostępnych ankiet:',
+			    	'COURSENAME': 'Nazwa kursu',
+			    	'TEACHER': 'Prowadzący',
+			    	'STARTDATE': 'Data rozpoczęcia',
+			    	'ENDDATE': 'Data zakończenia',
+			    	'STATUS': 'Status',
+			    	'ACTIONS': 'Akcje',
+			    	'NOTFILLED': 'Nie wzpełniona',
+			    	'Fill': 'Wypełnij ankietę',			    	
+			    	'QUESTIONNAIRE': 'ANKIETA',
+			    	'QUESTION': 'Pytanie',
+			    	'PREVIOUSQUESTION': 'Poprzednie pytanie',
+			    	'NEXTQUESTION': 'Następne pytanie',
+			    	'ANSWER': 'Odpowiedź',
+			    	'CANCEL': 'Anuluj',
+			    	'SAVEQUESTIONNAIRE': 'Zapisz ankietę',
+			    	'SENDQUESTIONNAIRE': 'Wyślij ankietę',
+			    	'NEWQUESTIONNAIRE': 'Utwórz nowy szablon ankiety',
+			    	'NEWQUESTIONNAIREDEF': 'Definiowanie szablonu ankiety',
+			    	'QUESTIONNAIRENAME': 'Nazwa szablonu',
+			    	'NEWQUESTION': 'Dodaj nowe pytanie',
+			    	'QUESTIONTYPE': 'Typ pytania',
+			    	'QUESTIONTYPEOPEN': 'Otwarte',
+			    	'QUESTIONTYPESCALE': 'Skala',
+			    	'QUESTIONTYPETF': 'TAK/NIE',
+			    	'QUESTIONLIST': 'Lista pytań',
+			    	'QUESTIONORDER': 'Zmień kolejność pytania',
+			    	'QUESTIONORDERUP': 'W górę',
+			    	'QUESTIONORDERDOWN': 'W dół',
+			    	'QUESTIONTITLE': 'Tytuł pytania',
+			    	'QUESTIONCONTENT': 'Treść pytania',
+			    	'QUESTIONSAVE': 'Zapisz pytanie',
+			    	'QUESTIONDELETE': 'Usuń pytanie',
+			    	'QUESTIONNAIRESAVE': 'Zapisz szablon ankiety'
+			    		},
+};
+	  $rootScope.currentLanguage = 'en';
+	  return function(label) {
+	    return tables[$rootScope.currentLanguage][label];
+	  };
+	}]);

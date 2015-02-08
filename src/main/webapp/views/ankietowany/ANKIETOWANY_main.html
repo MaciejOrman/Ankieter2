@@ -1,20 +1,18 @@
-﻿<div id="container"  ng-init="pobierzPlanyAnkietyzacji()">
-
-<button id="AdvancedButton2" type="button" name="" value="" style="position:absolute;left:597px;top:455px;width:150px;height:34px;z-index:13;background-color:#98FB98;" ng-click="pobierzPlanyAnkietyzacji()"><div><font style="font-size:11px" color="#000000" face="Arial" >Zapisz szablon</font></div></button>
+﻿<div id="container"  ng-init="pobierzPlanyAnkietyzacji()" ng-controller="ankietowanyController">
 <table style="position:absolute;left:20px;top:30px;width:725px;height:47px;z-index:2;border:2px #C0C0C0 solid;" cellpadding="0" cellspacing="1" id="Table1">
 <tr>
 <td align="left" valign="top" style="border:1px #C0C0C0 solid;width:142px;height:18px;">
-<font style="font-size:11px" color="#000000" face="Arial">Nazwa kursu</font></td>
+<font style="font-size:11px" color="#000000" face="Arial">{{ 'COURSENAME' | xlat }}</font></td>
 <td align="left" valign="top" style="border:1px #C0C0C0 solid;width:142px;height:18px;">
-<font style="font-size:11px" color="#000000" face="Arial">Prowadzący</font></td>
+<font style="font-size:11px" color="#000000" face="Arial">{{ 'TEACHER' | xlat }}</font></td>
 <td align="left" valign="top" style="border:1px #C0C0C0 solid;width:142px;height:18px;">
-<font style="font-size:11px" color="#000000" face="Arial">Termin rozpoczęcia</font></td>
+<font style="font-size:11px" color="#000000" face="Arial">{{ 'STARTDATE' | xlat }}</font></td>
 <td align="left" valign="top" style="border:1px #C0C0C0 solid;width:142px;height:18px;">
-<font style="font-size:11px" color="#000000" face="Arial">Termin zakończenia</font></td>
+<font style="font-size:11px" color="#000000" face="Arial">{{ 'ENDDATE' | xlat }}</font></td>
 <td align="left" valign="top" style="border:1px #C0C0C0 solid;height:18px;">
-<font style="font-size:11px" color="#000000" face="Arial">Status</font></td>
+<font style="font-size:11px" color="#000000" face="Arial">{{ 'STATUS' | xlat }}</font></td>
 <td align="left" valign="top" style="border:1px #C0C0C0 solid;height:18px;">
-<font style="font-size:11px" color="#000000" face="Arial">Wypelnianie</font></td>
+<font style="font-size:11px" color="#000000" face="Arial">{{ 'ACTIONS' | xlat }}</font></td>
 </tr>
 <tr ng-repeat="plan in planyAnkietyzacji">
 <td align="left" valign="top" style="border:1px #C0C0C0 solid;width:142px;height:18px;">
@@ -26,11 +24,11 @@
 <td align="left" valign="top" style="border:1px #C0C0C0 solid;width:142px;height:18px;">
 {{plan.termin.koniec}}</td>
 <td align="left" valign="top" style="border:1px #C0C0C0 solid;height:18px;">
-niewypełniona</td>
+{{ 'NOTFILLED' | xlat }}</td>
 <td align="left" valign="top" style="border:1px #C0C0C0 solid;height:18px;">
-<button ng-click="wypelnijAnkiete(plan.id)">Wypełnij ankietę</button></td>
+<button ng-click="wypelnijAnkiete(plan.id)">{{ 'FILL' | xlat }}</button></td>
 </tr>
 </table>
  <div id="wb_Text1" style="margin:0;padding:0;position:absolute;left:21px;top:11px;width:250px;height:14px;text-align:left;z-index:3;">
-<font style="font-size:11px" color="#000000" face="Arial">Lista dostępnych ankiet</font></div>
+<font style="font-size:11px" color="#000000" face="Arial">{{ 'QUESTIONNAIRELIST' | xlat }}</font></div>
 </div>

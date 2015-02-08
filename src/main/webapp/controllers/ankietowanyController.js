@@ -1,4 +1,4 @@
-function ankietowanyController($scope,$rootScope, $http, $location, myService){
+function ankietowanyController($scope,$rootScope, $http, $location){
 
 	$rootScope.planyAnkietyzacji =[];
 	
@@ -18,7 +18,6 @@ function ankietowanyController($scope,$rootScope, $http, $location, myService){
 		$http.post('/pobierzPlanyAnkietyzacji', 1).				//przeslac nrIndeksu zamiast magic number
 		  success(function(data, status, headers, config) {
 			  $rootScope.planyAnkietyzacji = data;
-			  myService.set(data);
 			  console.log(data);
 		  }).
 		  error(function(data, status, headers, config) {
@@ -46,7 +45,6 @@ function ankietowanyController($scope,$rootScope, $http, $location, myService){
 		//$scope.$apply();
 		$location.path("/wypelnijAnkiete/")
 		//console.log("$scope.nazwaKursu:"+$scope.nazwaKursu);
-		//console.log(myService.get());
 	}
 	
 	$rootScope.nastepnePytanie = function(){
