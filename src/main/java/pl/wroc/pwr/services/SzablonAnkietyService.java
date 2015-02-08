@@ -39,7 +39,7 @@ public class SzablonAnkietyService {
 		// TODO - implement SzablonAnkietyController.defAnkietyClick
 		throw new UnsupportedOperationException();
 	}
-
+/*	@PreAuthorize("hasRole('AUDYTOR')")*/
 	@RequestMapping(value="/zapiszSzablonAnkiety", method = RequestMethod.POST, consumes = {"application/json;charset=UTF-8"})
 	@ResponseStatus(value = HttpStatus.CREATED)
 	public void zapiszAnkiete(@RequestBody SzablonAnkietyDto szablonAnkietyDto) {

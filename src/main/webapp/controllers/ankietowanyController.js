@@ -1,4 +1,4 @@
-function ankietowanyController($scope,$rootScope, $http, $location, myService){
+function ankietowanyController($scope,$rootScope, $http, $location){
 
 	$rootScope.planyAnkietyzacji =[];
 	
@@ -10,15 +10,11 @@ function ankietowanyController($scope,$rootScope, $http, $location, myService){
 	$rootScope.pytanie;
 	$rootScope.odpowiedz;
 	$rootScope.aktualnaStrona=0;
-
-
-	//http://www.jeffryhouser.com/index.cfm/2014/6/2/How-do-I-run-code-when-a-variable-changes-with-AngularJS
 	
 	$rootScope.pobierzPlanyAnkietyzacji = function(){
 		$http.post('/pobierzPlanyAnkietyzacji', 1).				//przeslac nrIndeksu zamiast magic number
 		  success(function(data, status, headers, config) {
 			  $rootScope.planyAnkietyzacji = data;
-			  myService.set(data);
 			  console.log(data);
 		  }).
 		  error(function(data, status, headers, config) {

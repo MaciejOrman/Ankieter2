@@ -48,7 +48,7 @@ public class AnkietowanyService {
 		// TODO - implement AnkietowanyController.wypelnijAnkiete
 		throw new UnsupportedOperationException();
 	}
-	
+	/*@PreAuthorize("hasRole('ANKIETOWANY')")*/
 	@RequestMapping(value="/pobierzPlanyAnkietyzacji", method = RequestMethod.POST, consumes = {"application/json;charset=UTF-8"})
 	@ResponseStatus(value = HttpStatus.OK)
 	public List<PlanowanieAnkietyzacji> pobierzPlanyAnkietyzacji(@RequestBody String id) {

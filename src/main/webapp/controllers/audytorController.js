@@ -1,4 +1,4 @@
-function audytorController($scope, $http, $location, myService){
+function audytorController($scope, $http, $location){
 	
 	$scope.tytul;
 	$scope.tresc;
