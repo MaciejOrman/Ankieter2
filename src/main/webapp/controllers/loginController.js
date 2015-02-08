@@ -3,6 +3,7 @@ function loginController($scope, $http, $location, $rootScope){
 	$scope.haslo;
 	$scope.odpowiedz;
 	$scope.info;
+	$rootScope.typKonta;
 	
 	$scope.zaloguj = function(){
 		console.log($scope.login);
@@ -16,8 +17,10 @@ function loginController($scope, $http, $location, $rootScope){
 			  $scope.odpowiedz = data;
 			  if( $scope.odpowiedz == "ankietowany"){
 				  $location.path("/ankietowany");
+					$rootScope.typKonta = "Ankietowany";
 			  }else if($scope.odpowiedz == "audytor"){
 				  $location.path("/audytor");
+				  $rootScope.typKonta = "Audytor";
 			  }else{
 				  $location.path("/blad");
 			  }

@@ -61,11 +61,9 @@ function ankietowanyController($scope,$rootScope, $http, $location){
 	$scope.anuluj = function(){
 		$location.path('/ankietowany/');
 	}
-	$scope.zapisz = function(){
-		$location.path('/ankietowany/');
-	}
 	$scope.wyslij = function(){
 		$location.path('/ankietowany/');
 	}
+	
 	
 }
